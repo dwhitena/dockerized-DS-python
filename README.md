@@ -1,5 +1,5 @@
 # Containerized Data Science w/ Python & Docker
-This is a simple example of containerized data science illustrating how to dockerize a data science application.  The simple app that we are dockerizing here is a k-NN classification model trained on the famous [iris dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set).  The app could definitely be improved in terms of logging, error handling, etc., but many of those things have been left out here for illustration purposes.
+This is a simple example of containerized data science illustrating how one can (and should) dockerize a data science application.  The simple app that we are dockerizing here is a k-NN classification model trained on the famous [iris dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set).  The app could definitely be improved in terms of logging, error handling, etc., but many of those things have been left out here for illustration purposes.
 
 # Technologies
 
