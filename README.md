@@ -10,7 +10,7 @@ This is a simple example of containerized data science illustrating how one can 
 
 # Motivation
 
-As you may or may not know, data scienctists often form habits of producing less-than-production-ready code, and, regardless how cool your deeplearning model is, it is not going to be useful if you can't put it into production.  [Docker](https://www.docker.com/) can help us out of this situation.  
+As you may or may not know, data scientists often form habits of producing less-than-production-ready code, and, regardless how cool your deeplearning model is, it is not going to be useful if you can't put it into production.  [Docker](https://www.docker.com/) can help us out of this situation.  
 
 By dockerizing your data science applications, you can ease the burden of putting your application into production, integrate your data science work into your company's CI/CD pipelines, make your application portable, scale your application easily across data center, and more.
 
