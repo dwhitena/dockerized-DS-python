@@ -1,7 +1,8 @@
 from flask import Flask
 from flask_restful import Resource, Api
 from flask_restful import reqparse
-from utils import makeprediction
+from sklearn import datasets
+from sklearn.neighbors import KNeighborsClassifier
 
 app = Flask(__name__)
 api = Api(app)
@@ -16,14 +17,12 @@ class Prediction(Resource):
         parser.add_argument('pwidth', type=float, help='pwidth cannot be converted')
         args = parser.parse_args()
 
-        prediction = makeprediction.predict([
+        prediction = predict([[
                 args['slength'], 
                 args['swidth'], 
                 args['plength'], 
                 args['pwidth']
-            ])
-
-        print "THE PREDICTION IS: " + str(prediction)
+            ]])
 
         return {
                 'slength': args['slength'],
@@ -33,7 +32,26 @@ class Prediction(Resource):
                 'species': prediction
                }
 
+def predict(inputFeatures):
+
+    iris = datasets.load_iris()
+
+    knn = KNeighborsClassifier()
+    knn.fit(iris.data, iris.target)
+
+    predictInt = knn.predict(inputFeatures)
+    if predictInt[0] == 0:
+        predictString = 'setosa'
+    elif predictInt[0] == 1:
+        predictString = 'versicolor'
+    elif predictInt[0] == 2:
+        predictString = 'virginica'
+    else:
+        predictString = 'null'
+
+    return predictString
+
 api.add_resource(Prediction, '/prediction')
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(host='0.0.0.0', debug=False)
