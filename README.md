@@ -32,7 +32,7 @@ This example is very simple, but the hope is that it provides a starting point f
 - Now run the Docker image with:
 
   ```
-  docker run --net host -d --name iris pythoniris
+  docker run -p 5000:5000 -d --name iris pythoniris
   ```
 
 - The app's JSON API is now listening on port `5000` of this host.  Congrats! You just deployed your first dockerized data science application.  Now go forth and develop, train, test, validate, dockerize, and deploy more.
